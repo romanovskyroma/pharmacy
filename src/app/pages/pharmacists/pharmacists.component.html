@@ -1,0 +1,13 @@
+<div class="container">
+  <hr>
+  <div class="submenu">
+    <a class="btn" [routerLink]="[ 'articles' ]" routerLinkActive="active">Статті</a>
+    <a class="btn" [routerLink]="[ 'tests' ]" routerLinkActive="active">Тести</a>
+    <a class="btn" [routerLink]="[ 'vacancies' ]" routerLinkActive="active">Вакансії</a>
+    <a class="btn" [routerLink]="[ 'resume' ]" routerLinkActive="active">Резюме +</a>
+    <a class="btn" [routerLink]="[ 'profile' ]" routerLinkActive="active">Мій профіль</a>
+  </div>
+  <div class="content"> 
+    <router-outlet></router-outlet>
+  </div> 
+</div>

@@ -1,0 +1,8 @@
+<div class="block">
+  <div class="event" *ngFor="let event of events" [routerLink]="[ '/home/event', event.id ]"
+    [ngStyle]="{'background-image': 'url(&quot;' + event.image + '&quot;)'}">
+    <span class="name">{{ event.name }}</span>
+    <span class="description">{{ event.description }}</span>
+    <span class="date">{{ event.date }}</span>
+  </div>
+</div>

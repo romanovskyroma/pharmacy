@@ -1,0 +1,73 @@
+.block {
+  width: 95%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: white;
+  opacity: 100%;
+
+  .btn {
+    padding: 0 10px; 
+    margin-left: 0;
+  }
+
+  .textArticle {
+    text-align: justify;
+    color: rgb(73, 73, 73);
+    font-size: 14px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong {
+      color: black;
+      text-indent: 20px;
+    }
+
+    p {
+      text-indent: 20px;
+    }
+
+    ul {
+      margin: 15px 0 15px 40px;
+      color: red;
+    }
+  }
+
+  .error {
+    color: red;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+
+  input {
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-bottom: 3px;
+  }
+ 
+  textarea {
+    resize: none;
+    padding: 10px;
+    font-family: Roboto-Light;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  .btn {
+    color: white;
+    font-size: 18px;
+  }
+}

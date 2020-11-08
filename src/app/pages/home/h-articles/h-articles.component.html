@@ -1,0 +1,13 @@
+<div class="content">
+  <div class="block" *ngFor="let article of articles | sortByDate | paginate: { itemsPerPage: 2, currentPage: p }" [routerLink]="[ '/home/h-articles', article.id ]">
+    <div class="id">{{ article.id }}</div>
+    <div class="title">{{ article.title }}</div> 
+    <hr>
+    <div class="wrapTextArticle">
+      <div class="textArticle" [innerHTML]="article.text"></div>
+    </div>
+    <div class="author">Автор: {{ article.author }}</div>
+  </div>
+  <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Попередня"
+  nextLabel="Наступна"></pagination-controls>
+</div>     

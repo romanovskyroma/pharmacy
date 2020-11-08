@@ -1,0 +1,8 @@
+<h2>Конструктор тесту</h2>
+<input type="text" placeholder="Назва тесту" [(ngModel)]="testName" #name="ngModel" >
+<div class="questions" *ngIf="!questionBlockShow">
+    <p>Перше запитання</p>
+    <textarea name="question" id="question" cols="100" rows="5" placeholder="ваше запитання"></textarea>
+    <p>тип відповіді:</p>
+    <span><input type="checkbox" name="" id=""><input type="radio" name="" id=""></span>
+</div>

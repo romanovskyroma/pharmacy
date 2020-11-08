@@ -1,0 +1,17 @@
+<div class="container">
+  <hr>
+  <div class="submenu">
+    <a class="btn" [routerLink]="[ 'admin-articles' ]" routerLinkActive="active">Статті</a>
+    <a class="btn" [routerLink]="[ 'users' ]" routerLinkActive="active">Користувачі</a>
+    <a class="btn" [routerLink]="[ 'admin-pharmacies' ]" routerLinkActive="active">Аптеки</a>
+    <a class="btn" [routerLink]="[ 'admin-pharm-companies' ]" routerLinkActive="active">Фармкомпанії</a>
+  </div>
+  <!-- <p>admin works!</p> -->
+
+  <router-outlet></router-outlet>
+
+  <!-- <div class="content">
+    <div class="block left-side"></div>
+    <div class="block right-side"></div>
+  </div> -->
+</div>

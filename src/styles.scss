@@ -1,0 +1,215 @@
+@font-face {
+  font-family: Roboto-Light;
+  src: url(assets/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Black;
+  src: url(assets/fonts/Roboto/Roboto-Black.ttf);
+}
+
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  border-radius: 10px;
+  background-image: linear-gradient(0deg, rgb(180, 13, 13) 0%, rgb(250, 13, 13) 70%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35), inset 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  width: auto;
+  height: 23px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.btn:active {
+  background-image: linear-gradient(0deg, rgb(250, 13, 13) 0%, rgb(180, 13, 13) 70%);
+  border: none;
+  outline: none;
+}
+
+.btn:focus {
+  background-image: linear-gradient(0deg, rgb(250, 13, 13) 0%, rgb(180, 13, 13) 70%);
+  border: none;
+  outline: none;
+}
+
+.text-title {
+  font-family: Roboto-Medium;
+  text-shadow: 1px 1px 2px black;
+  color: rgb(105, 105, 105);
+}
+
+.block {
+  margin: 5px;
+  border-radius: 10px;
+  background-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(236, 236, 236) 70%);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35), inset 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  height: 25px;
+  padding-left: 10px;
+}
+
+input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 7.3px 0;
+}
+
+input[type=range].slider:focus {
+  outline: none;
+}
+
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 13.4px;
+  cursor: pointer;
+  box-shadow: 1.1px 1.1px 2.7px #555351, 0px 0px 1.1px #62605d;
+  background-image: linear-gradient(to right, white, red);
+  border-radius: 14.6px;
+  border: 0.3px solid #b0afae;
+}
+
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 1.9px 1.9px 2.9px #4b4c4a, 0px 0px 1.9px #585957;
+  border: 0.3px solid rgba(0, 24, 24, 0.46);
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #acabab;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7.6px;
+}
+
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background-image: linear-gradient(to right, white, red);
+}
+
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 13.4px;
+  cursor: pointer;
+  box-shadow: 1.1px 1.1px 2.7px #555351, 0px 0px 1.1px #62605d;
+  background-image: linear-gradient(to right, white, red);
+  border-radius: 14.6px;
+  border: 0.3px solid #b0afae;
+}
+
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 1.9px 1.9px 2.9px #4b4c4a, 0px 0px 1.9px #585957;
+  border: 0.3px solid rgba(0, 24, 24, 0.46);
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #acabab;
+  cursor: pointer;
+}
+
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 13.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range].slider::-ms-fill-lower {
+  background-image: linear-gradient(to right, white, red);
+  border: 0.3px solid #b0afae;
+  border-radius: 29.2px;
+  box-shadow: 1.1px 1.1px 2.7px #555351, 0px 0px 1.1px #62605d;
+}
+
+input[type=range].slider::-ms-fill-upper {
+  background: #ff3d31;
+  border: 0.3px solid #b0afae;
+  border-radius: 29.2px;
+  box-shadow: 1.1px 1.1px 2.7px #555351, 0px 0px 1.1px #62605d;
+}
+
+input[type=range].slider::-ms-thumb {
+  box-shadow: 1.9px 1.9px 2.9px #4b4c4a, 0px 0px 1.9px #585957;
+  border: 0.3px solid rgba(0, 24, 24, 0.46);
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  background: #acabab;
+  cursor: pointer;
+  height: 13.4px;
+}
+
+input[type=range].slider:focus::-ms-fill-lower {
+  background: #ff3d31;
+}
+
+input[type=range].slider:focus::-ms-fill-upper {
+  background: #ff3d31;
+}
+
+
+
+textarea {
+  resize: none;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 1px red;
+  border: none;
+}
+
+@media screen and (max-width: 480px) {
+  .block {
+   padding: 5px;
+   margin: 10px auto;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="block">
+    <button class="btn" value="Додати статтю" (click)="showAddArticles()">Додати статтю</button>
+  </div>
+
+  <div class="block" *ngIf="addArticles">
+    <form>
+      <div class="form-group">
+        <label for="idArticle">ID статті</label>
+        <input type="text" class="" id="idArticle" name="idArticle" [(ngModel)]="article.id">
+      </div>
+      <div class="form-group">
+        <label for="nameArticle">Назва статті</label>
+        <input type="text" class="" id="nameArticle" name="titleArticle" [(ngModel)]="article.title">
+      </div>
+      <div class="form-group">
+        <label for="author">Автор</label>
+        <input type="text" class="" id="author" name="author" [(ngModel)]="article.author">
+      </div>
+      <div class="form-group">
+        <label for="textArticle">Текст статті</label>
+        <quill-editor name="textArticle" [(ngModel)]="article.text"></quill-editor>
+        <!-- <textarea id="textArticle" cols="30" rows="10" name="textArticle" 
+        [(ngModel)]="article.text"></textarea> -->
+      </div>
+      <div class="error" *ngIf="error">Заповніть всі поля форми</div>
+      <div class="form-group">
+        <input *ngIf="addArt" class="btn" type="button" value="Додати статтю" (click)="addArticle()">
+        <input *ngIf="updArt" class="btn" type="button" value="Обновити статтю" (click)="updateArticle()">
+        <input class="btn" type="button" value="Закрити" (click)="closeArticle()">
+      </div>
+    </form> 
+  </div>
+  <div class="block" *ngFor="let article of articles | sortByDate"> 
+    <p>
+      <input type="button" class="btn" value="Редагувати" (click)="editArticle(article)">
+      <input type="button" class="btn" value="Видалити" (click)="delArticle(article.id)">
+    </p>
+    <h1>{{ article.title }}</h1>
+    <h3>{{ article.author }}</h3>
+    <h5>{{ article.date | date: 'dd.MM.yyyy HH.mm' }}</h5>
+    <h5>{{ article.id }}</h5>
+    <div class="textArticle" [innerHTML]="article.text"></div>
+  </div>
+
+</div>

@@ -1,0 +1,48 @@
+<form [formGroup]="profileForm" (ng-submit)="onSubmit()">
+  <p>Особисті дані</p>
+  <label>
+    <p>Прізвище:</p>
+    <input type="text" formControlName="firstName">
+  </label>
+  <label>
+    <p>Ім'я:</p>
+    <input type="text" formControlName="secondName">
+  </label>
+  <label> 
+    <p>По-батькові:</p>
+    <input type="text" formControlName="lastName">
+  </label>
+  <label> 
+    <p>Телефон:</p>
+    <input type="text" formControlName="phone">
+  </label>
+  <div formGroupName="education"> 
+    <p>Освіта</p>
+    <label>
+      <p>Універститет:</p>
+      <input type="text" formControlName="university">
+    </label>
+    <label>
+      <p>Факультет:</p>
+      <input type="text" formControlName="faculty">
+    </label>
+    <label>
+      <p>Спеціальність:</p>
+      <input type="text" formControlName="specialty">
+    </label>
+    <label>
+      <p>Роки навчання:</p>
+      <select formControlName="startYear">
+        <option selected></option>
+        <option *ngFor="let y of year">{{ y }}</option>
+      </select>
+      <span> - </span>
+      <select formControlName="endYear">
+        <option selected></option>
+        <option *ngFor="let y of year">{{ y }}</option>
+      </select>
+    </label>
+  </div>
+  <button type="submit" class="btn" (click)="onSubmit()" [disabled]="!profileForm.valid">Оновити дані</button>
+</form>
+ 

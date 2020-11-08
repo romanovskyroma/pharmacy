@@ -1,0 +1,69 @@
+<header>
+  <a class="nav-link admin" [routerLink]="[ '/admin' ]" routerLinkActive="active">Admin</a>
+  <div class="status-bar">
+    <div class="logReg" *ngIf="logReg">
+      <div class="sign text-title">
+        <a (click)="modShow()">Увійти</a>
+      </div>
+      <div class="registration text-title">
+        <a [routerLink]="[ '/registration' ]">Зареєструватись</a>
+      </div>
+    </div>
+    <div class="logOut" *ngIf="logOut">
+      <p>{{hello}}</p>
+      <a (click)="signOut()">Вихід</a>
+    </div> 
+  </div>
+
+  <div class="modalWindow" *ngIf="!modalShow">
+    <div class="modalText">Ведіть логін і пароль</div>
+
+    <form #logForm="ngForm" class="f1" (ngSubmit)="loginUser(logForm)">
+      <input type="text" name="email" [(ngModel)]="email" placeholder="Login here...">
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Password here...">
+      <select class="roleSel" name="role" [(ngModel)]="role">
+        <option value="provisor" [selected]="true">провізор/фармацевт</option>
+        <option value="pharmacy">аптека</option>
+        <option value="pharm-comp">фармкомпанія</option>
+      </select>
+      <a id="fblogin" class="login-button login-button--facebook" (click)="fbLogin()">Вхід з Facebook</a>
+      <p class="error">{{ errMes }}</p>
+      <button class="btnSign">Log In</button>
+    </form>
+    <div class="closeSign" (click)="closeModal()">&#10006;</div>
+  </div>
+
+  <div class="logo">Pharmacist <span>Profi</span>
+    <p class="slogan">let's learn together</p>
+  </div>
+  <nav>
+    <ul>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[ '/home' ]" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item users">
+        <a class="nav-link" [routerLink]="[ '/pharmacists' ]" routerLinkActive="active">User</a>
+
+      </li>
+      <li class="nav-item pharmacy">
+        <a class="nav-link" [routerLink]="[ '/pharmacies' ]" routerLinkActive="active">Pharmacy</a>
+
+      </li>
+      <li class="nav-item pharm-comp">
+        <a class="nav-link" [routerLink]="[ '/pharmaceutical-companies' ]" routerLinkActive="active">Company</a>
+
+      </li>
+    </ul>
+  </nav> 
+  <div class="capsula">
+    <!-- <img src="..//..//..//assets/img/capsula.png" alt=""> -->
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/pharmacy-3fcc3.appspot.com/o/images%2Fcapsula.png?alt=media&token=33a8fb28-1885-478b-832e-7d214c2de45e"
+      alt="">
+    <div class="search-area">
+      <input type="text" class="search" placeholder="search">
+      <input type="button" class="btn" value="go" (click)="go()">
+    </div>
+
+  </div>
+</header>

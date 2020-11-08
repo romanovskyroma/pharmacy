@@ -1,0 +1,24 @@
+<div class="name">
+  <p>Прізвище: {{ userData?.firstName }}</p>
+  <p>Ім'я: {{ userData?.secondName }}</p>
+  <p>По-батькові: {{ userData?.lastName }}</p>
+</div>
+<div class="study">
+  <p>Університет: {{ userData?.education?.university }}</p>
+  <p>Факультет: {{ userData?.education?.faculty }}</p>
+  <p>Спеціальність: {{ userData?.education?.specialty }}</p>
+  <p>
+    Роки навчання:  
+    {{ userData?.education?.startYear }} 
+    <span *ngIf="userData?.education?.startYear"> - </span>
+     {{ userData?.education?.endYear }}
+    <span *ngIf="userData?.education?.endYear">рр.</span>
+  </p>
+</div>
+<div class="work">
+  <p>Компанія в якій Ви працюєте:</p>
+  <p>Адреса компанія в якій Ви працюєте:</p>
+  <p>Посада:</p>
+  <p>Період:</p>
+  <p>Місто де Ви працюєте:</p>
+</div>

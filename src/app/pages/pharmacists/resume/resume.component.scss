@@ -1,0 +1,21 @@
+.block {
+    padding: 20px;
+}
+
+.txtareaExperience {
+    resize: none;
+    padding: 10px;
+}
+
+.txtareaExperience:focus {
+    outline: none;
+}
+
+.btn {
+    width: 150px;
+    font-size: 15px;
+}
+
+p, input {
+    margin: 5px;
+}

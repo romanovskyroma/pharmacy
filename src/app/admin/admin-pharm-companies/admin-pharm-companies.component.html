@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Назва</td>
+                <td>email</td>
+                <td>Місто</td>
+                <td>Адреса</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pharm of pharmCompanies, index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{ pharm.pharmCompanyName }}</td>
+                <td>{{ pharm.email }}</td>
+                <td>{{ pharm.pharmCompanyCity }}</td>
+                <td>{{ pharm.pharmCompanyAdress }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ 

@@ -1,0 +1,8 @@
+<div *ngFor="let res of myResume">
+    <p>{{ res.position }}</p>
+    <p>{{ res.city }}</p>
+    <p>{{ res.salery }}</p>
+    <!-- <p>{{ res.id }}</p> -->
+    <button class="btn" type="submit" [routerLink]="[ '/pharmacists/profile/editmyresume', res.id ]">Редагувати</button>
+    <hr>
+</div>

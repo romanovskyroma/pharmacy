@@ -1,0 +1,36 @@
+<div class="block">
+  <input type="button" class="btn" value="додати подію" (click)="choose($event)">
+  <input type="button" class="btn" value="мої події" (click)="choose($event)">
+</div>
+<div class="block" *ngIf="addEventB">
+  <form>
+    <div class="form-group">
+      <label for="nameEvent">Назва події</label>
+      <input type="text" id="nameEvent" name="nameEvent" [(ngModel)]="nameEvent">
+    </div>
+    <div class="form-group">
+      <label for="descriptionEvent">Опис події</label>
+      <textarea name="descriptionEvent" id="descriptionEvent" cols="30" rows="10"
+        [(ngModel)]="descriptionEvent"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="dateEvent">Дата</label>
+      <input type="text" id="dateEvent" name="dateEvent" [(ngModel)]="dateEvent">
+    </div>
+    <div class="form-group">
+      <input type="file" name="imageEventUrl" id="imgEventUrl" [(ngModel)]="imageEventUrl" (change)="onChange($event)">
+    </div>
+
+    <div class="form-group">
+      <input type="button" class="btn" value="додати подію" (click)="addEvent()">
+    </div>
+  </form> 
+</div>
+<div class="block" *ngIf="myEvent">
+  <div class="event" [ngStyle]="{'background-image': 'url(&quot;' + event.image + '&quot;)'}"
+    *ngFor="let event of events">
+    <span class="name">{{ event.name }}</span>
+    <span class="description">{{ event.description }}</span>
+    <span class="date">{{ event.date }}</span>
+  </div>
+</div>

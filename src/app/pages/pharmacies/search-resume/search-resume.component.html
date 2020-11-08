@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="filters block"> 
+    <p>Використайте фільтри:</p> 
+    <span>
+      Посада:
+      <select name="position" [(ngModel)]="resFilter.position">
+        <option selected></option>
+        <option value="{{ pos }}" *ngFor="let pos of arrPos">{{ pos }}</option>
+      </select>
+    </span>
+    <span>
+      Місто:
+      <select name="city" [(ngModel)]="resFilter.city">
+        <option selected></option>
+        <option  value="{{ city }}" *ngFor="let city of arrCity">{{ city }}</option>
+      </select>
+    </span>
+  </div>
+  <div class="resumeContainer block" *ngFor="let resume of allResume | filterBy: resFilter">
+    <div class="resumeTitle">
+      {{ resume.position | uppercase }} : {{ resume.city | titlecase }}
+      {{ resume.id }}
+    </div>
+    <input class="btn" type="button" value="Детальніше" [routerLink]="[ '/pharmacies/search-resume/', resume.id ]">
+  </div>
+</div>

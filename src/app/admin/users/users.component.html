@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>email</td>
+                <td>uid</td>
+                <td>#</td>
+                <td>#</td> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users, index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.uid }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

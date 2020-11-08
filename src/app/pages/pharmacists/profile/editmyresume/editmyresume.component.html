@@ -1,0 +1,12 @@
+<p>Сторінка в розробці.......</p>
+<hr>
+<form [formGroup]="resumeForm" (ng-submit)="updateResume()">
+  <label>Посада<input type="text" formControlName="position"></label>
+  <label>Місто<input type="text" formControlName="city"></label>
+  <label>Заробітня плата<input type="text" formControlName="salery"></label>
+  <label>Інститут<input type="text" formControlName="univercity"></label>
+  <label>Досвід(років)<input type="text" formControlName="experienceYears"></label>
+  <label>Місце роботи<input type="text" formControlName="experience"></label>
+  <label>Про себе<input type="text" formControlName="aboutMySelf"></label>
+  <input type="submit" name="editRes" class="btn" value="редагувати" (click)="updateResume()">
+</form>

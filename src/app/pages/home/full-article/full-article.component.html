@@ -1,0 +1,19 @@
+<div class="container">
+  <hr> 
+  <!-- <div class="submenu">
+    <a class="btn" [routerLink]="[ 'h-articles' ]" routerLinkActive="active">Статті</a>
+    <a class="btn" [routerLink]="[ 'h-events' ]" routerLinkActive="active">Події</a>
+    <a class="btn" [routerLink]="[ 'h-vote' ]" routerLinkActive="active">Опитування</a>
+  </div> -->
+  <!-- <router-outlet></router-outlet> -->
+  <div class="contentOneArt">
+    <div class="block">
+      <div class="title">{{ oneArticle?.title }}</div>
+      <hr>
+      <div class="wrapTextArticle">
+        <div class="textArticle" [innerHTML]="oneArticle?.text"></div>
+      </div>
+      <div class="author">Автор: {{ oneArticle?.author }}</div>
+    </div>
+  </div>
+</div>

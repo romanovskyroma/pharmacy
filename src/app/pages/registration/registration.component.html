@@ -1,0 +1,205 @@
+<div class="block">
+  <div class="typeReg">
+    <p>Ви хочете зареєструватись як:</p>
+    <select name="typeReg" id="typeReg" (click)="choose($event)">
+      <option selected disabled>зареєструватись як</option>
+      <option value="provisor">Провізор/Фармацевт</option>
+      <option value="pharmcompany">Фармкомпанія</option>
+      <option value="pharmacy">Аптека</option>
+    </select>
+  </div>
+
+  <div class="regForm" *ngIf="provisor">
+    <form>
+      <div class="userReg">
+        <div class="nameFields">
+          <p>E-mail</p>
+          <p>Пароль</p>
+          <p>Повторіть пароль</p>
+        </div>
+
+        <div class="formFields">
+          <p><input [ngClass]="{'redBorder': mail.invalid && mail.dirty}" type="email" name="email"
+              [(ngModel)]="newProvisor.email" required #mail="ngModel"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></p>
+          <p><input [ngClass]="{'redBorder': pass.invalid && pass.dirty && pass.value!==passrepeat.value}"
+              type="password" name="password" [(ngModel)]="newProvisor.password" required #pass="ngModel"
+              pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}">
+
+          </p>
+          <p><input [ngClass]="{'redBorder': passrepeat.invalid && passrepeat.dirty && pass.value!==passrepeat.value}"
+              type="password" name="passwordRepeat" [(ngModel)]="passwordRepeat" required #passrepeat="ngModel"
+              pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}">
+          </p>
+        </div>
+      </div>
+      <p><input type="submit" value="Зареєструватись" class="btn regUser" (click)="addProvisor(newProvisor)"
+          [disabled]="mail.invalid || pass.invalid || passrepeat.invalid || pass.value!==passrepeat.value"></p>
+      <p><input type="reset" class="btn regUser" value="Очистити"></p>
+    </form>
+  </div>
+
+  <div class=" regForm" *ngIf="pharmacy">
+    <form (ngSubmit)="addPharmacy()">
+      <div class="pharmacyReg">
+        <div class="nameFields">
+          <p>Назва аптеки/мережі</p>
+          <p>E-mail</p>
+          <p>Пароль</p>
+          <p>Повторіть пароль</p>
+          <p>Область</p>
+          <p>Місто</p>
+          <p>Адреса</p>
+        </div>
+
+        <div class="formFields">
+          <p><input [ngClass]="{'redBorder': namepharm.invalid && namepharm.dirty}" type="text" name="pharmacyName"
+              [(ngModel)]="newPharm.pharmacyName" #namepharm="ngModel" required></p>
+          <p><input [ngClass]="{'redBorder': mail.invalid && mail.dirty}" type="email" name="email"
+              [(ngModel)]="newPharm.email" required #mail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          </p>
+          <p><input [ngClass]="{'redBorder': pass.invalid && pass.dirty && pass.value!==passrepeat.value}"
+              type="password" name="password" [(ngModel)]="newPharm.password" required #pass="ngModel"></p>
+          <p><input [ngClass]="{'redBorder': passrepeat.invalid && passrepeat.dirty && pass.value!==passrepeat.value}"
+              type="password" name="passwordRepeat" [(ngModel)]="passwordRepeat" required #passrepeat="ngModel">
+          </p>
+          <!-- <p>
+            <input [ngClass]="{'redBorder': regionPh.invalid && regionPh.dirty}" name="region"
+              [(ngModel)]="newPharm.pharmacyRegion" #regionPh="ngModel" type="text" required>
+          </p> -->
+          <p class="ng-autocomplete">
+            <ng-autocomplete name="region" [(ngModel)]="newPharm.pharmacyRegion" #regionPh="ngModel" [data]="arrRegion"
+              [searchKeyword]="keywordRegion" [itemTemplate]="regionTemplate" (selected)="selectEvent($event)"
+              [ngClass]="{'redBorder': regionPh.invalid && regionPh.dirty}" required [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #regionTemplate let-region>
+              <a [innerHTML]="region"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+          </p>
+          <!-- <p>
+            <input [ngClass]="{'redBorder': cityPh.invalid && cityPh.dirty}" name="city"
+              [(ngModel)]="newPharm.pharmacyCity" #cityPh="ngModel" type="text" required
+              pattern="^[А-ЯІ?]{1}[а-яі?]{2,}$">
+          </p> -->
+          <p class="ng-autocomplete">
+            <ng-autocomplete name="city" [(ngModel)]="newPharm.pharmacyCity" #cityPh="ngModel"
+              [data]="arrCitiesOfRegion" [searchKeyword]="keywordCity" [itemTemplate]="itemTemplate"
+              [ngClass]="{'redBorder': cityPh.invalid && cityPh.dirty}" required [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-city>
+              <a [innerHTML]="city"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+          </p>
+          <p><input [ngClass]="{'redBorder': adressPh.invalid && adressPh.dirty}" name="adress"
+              [(ngModel)]="newPharm.pharmacyAdress" #adressPh="ngModel" type="text" required 
+              pattern="^[а-яі?]{3,},[0-9]{1,3}$" placeholder="Шевченка,15">
+          </p>
+        </div>
+      </div>
+      <p><input type="submit" value="Зареєструватись" class="btn regUser" [disabled]="mail.invalid || pass.invalid || passrepeat.invalid || pass.value!==passrepeat.value ||
+        cityPh.invalid || adressPh.invalid || regionPh.invalid || namepharm.invalid">
+      </p>
+      <p>{{ error }}</p>
+      <p><input type="reset" class="btn regUser" value="Очистити" (click)="formReset()"></p>
+    </form>
+  </div>
+
+  <div class="regForm" *ngIf="pharmcompany">
+    <form (ngSubmit)="addPharmCompany()">
+      <div class="pharmCompanyReg">
+        <div class="nameFields">
+          <p>Назва фармкомпанії</p>
+          <p>E-mail</p>
+          <p>Пароль</p>
+          <p>Повторіть пароль</p>
+          <p>Область</p>
+          <p>Місто</p>
+          <p>Адреса</p>
+        </div>
+
+        <div class="formFields">
+          <p><input [ngClass]="{'redBorder': namePhC.invalid && namePhC.dirty}" name="namePharmCompany"
+              [(ngModel)]="newPharmCompany.pharmCompanyName" type="text" #namePhC="ngModel" required></p>
+          <p><input [ngClass]="{'redBorder': mail.invalid && mail.dirty}" type="email" name="email"
+              [(ngModel)]="newPharmCompany.email" required #mail="ngModel"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></p>
+          <p><input [ngClass]="{'redBorder': pass.invalid && pass.dirty && pass.value!==passrepeat.value}"
+              type="password" name="password" [(ngModel)]="newPharmCompany.password" required #pass="ngModel"></p>
+          <p><input [ngClass]="{'redBorder': passrepeat.invalid && passrepeat.dirty && pass.value!==passrepeat.value}"
+              type="password" name="passwordRepeat" [(ngModel)]="passwordRepeat" required #passrepeat="ngModel">
+          </p>
+          <p class="ng-autocomplete">
+            <ng-autocomplete name="region" [(ngModel)]="newPharm.pharmacyRegion" #regionPh="ngModel" [data]="arrRegion"
+              [searchKeyword]="keywordRegion" [itemTemplate]="regionTemplate" (selected)="selectEvent($event)"
+              [ngClass]="{'redBorder': regionPh.invalid && regionPh.dirty}" required [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #regionTemplate let-region>
+              <a [innerHTML]="region"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+          </p>
+          <p class="ng-autocomplete">
+            <ng-autocomplete name="city" [(ngModel)]="newPharmCompany.pharmCompanyCity" #cityPh="ngModel"
+              [data]="arrCitiesOfRegion" [searchKeyword]="keywordCity" [itemTemplate]="itemTemplate"
+              [ngClass]="{'redBorder': cityPh.invalid && cityPh.dirty}" required [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-city>
+              <a [innerHTML]="city"></a>
+            </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+            <!-- <input [ngClass]="{'redBorder': cityPh.invalid && cityPh.dirty}" name="city"
+              [(ngModel)]="newPharmCompany.pharmCompanyCity" #cityPh="ngModel" type="text" required> -->
+            </p>
+          <p><input [ngClass]="{'redBorder': adressPh.invalid && adressPh.dirty}" name="adress"
+              [(ngModel)]="newPharmCompany.pharmCompanyAdress" #adressPh="ngModel" type="text"></p>
+
+        </div>
+      </div>
+      <p><input type="submit" value="Зареєструватись" class="btn regUser" [disabled]="mail.invalid || pass.invalid || passrepeat.invalid || pass.value!==passrepeat.value ||
+          cityPh.invalid || adressPh.invalid || regionPh.invalid || namePhC.invalid">
+      </p>
+      <p><input type="reset" class="btn regUser" value="Очистити" (click)="formReset()"></p>
+    </form>
+  </div>
+  <ul>
+    <li class="text" *ngFor="let user of users, index as i">
+      {{ i+1 }}
+      <!-- {{ user.name }} -->
+      {{ user.email }}
+      <!-- {{ user.password }} -->
+      {{ user.uid }}
+    </li>
+  </ul>
+  <ul>
+    <li class="text" *ngFor="let pharmacy of pharmacies, index as i">
+      {{ i+1 }}
+      {{ pharmacy.pharmacyName }}
+      {{ pharmacy.email }}
+      {{ pharmacy.pharmacyCity }}
+      {{ pharmacy.pharmacyAdress }}
+    </li>
+  </ul>
+  <ul>
+    <li class="text" *ngFor="let pharmComp of pharmCompanies, index as i">
+      {{ i+1 }}
+      {{ pharmComp.pharmCompanyName }}
+      {{ pharmComp.email }}
+      {{ pharmComp.pharmCompanyCity }}
+      {{ pharmComp.pharmCompanyAdress }}
+    </li>
+  </ul>
+</div>

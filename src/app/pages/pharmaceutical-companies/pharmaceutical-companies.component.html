@@ -1,0 +1,14 @@
+<div class="container">
+  <hr>
+  <div class="submenu">
+    <a class="btn" [routerLink]="[ 'events' ]" routerLinkActive="active">Події</a>
+    <a class="btn" [routerLink]="[ 'createtest' ]" routerLinkActive="active">Тестування</a>
+    <a class="btn" [routerLink]="[ 'vote' ]" routerLinkActive="active">Опитування</a>
+    <a class="btn" [routerLink]="[ 'statistic' ]" routerLinkActive="active">Статистика</a>
+  </div> 
+
+  <div class="content"> 
+    <p>pharmaceutical-companies works!</p>
+    <router-outlet></router-outlet>
+  </div>
+</div>

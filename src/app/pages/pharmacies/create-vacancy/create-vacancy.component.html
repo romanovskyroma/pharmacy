@@ -1,0 +1,19 @@
+<div class="block">
+  <form #form=ngForm (submit)="addVacancy(form)">
+    <input type="text" placeholder="Посада" name="position" [(ngModel)]="formData.position" required>
+    <input type="text" placeholder="Місто" name="city" [(ngModel)]="formData.city" required>
+    <input type="text" placeholder="Заробітня плата" name="salery" [(ngModel)]="formData.salery" required>
+    <div class="groupYear">
+      <input type="text" class="expYear" placeholder="Досвід роботи" name="experienceYears" #experienceYears="ngModel"
+        [(ngModel)]="formData.experienceYears" required disabled><span class="year">від {{ formData.experienceYears }} {{ year }}</span>
+    </div> 
+    <input type="range" class="slider" min="0" max="10" name="experienceYears" [(ngModel)]="formData.experienceYears"
+      required (change)="onYearChange()">
+    <textarea placeholder="Вимоги та навики" cols="50%" rows="10%" name="skills" [(ngModel)]="formData.skills"
+      required></textarea>
+      <textarea placeholder="Про компанію" cols="50%" rows="10%" name="aboutCompany" [(ngModel)]="formData.aboutCompany"
+      required></textarea>
+
+    <input type="submit" class="btn" value="Додати вакансію" [disabled]=form.invalid>
+  </form>
+</div> 

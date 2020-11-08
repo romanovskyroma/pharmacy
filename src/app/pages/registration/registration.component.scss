@@ -1,0 +1,94 @@
+.block {
+  padding: 10px;
+  margin: 35px;
+
+  select {
+    width: 180px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+  }
+}
+
+.regForm {
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.userReg,
+.pharmacyReg,
+.pharmCompanyReg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // width: 50%;
+
+  p {
+    margin-bottom: 10px;
+    height: 35px;
+    // width: 50%;
+  }
+
+  input {
+    height: 25px;
+    width: 90%;
+  }
+}
+
+.nameFields {
+  margin-right: 4px;
+  width: 40%;
+  font-size: 14px;
+}
+
+.regUser {
+  width: 100%;
+  height: 50px;
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.typeReg {
+  text-align: center;
+
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+.redBorder {
+  border: 1px solid red;
+}
+
+:host ::ng-deep .ng-autocomplete {
+  width: 95%;
+  max-width: 600px;
+  display: table;
+  // margin: 0 auto;
+  height: 25px;
+  // border: 1px solid red;
+
+  .autocomplete-container {
+    height: 25px;
+  }
+
+  .input-container {
+    input {
+      height: 25px;
+      box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+}
+
+// :host ::ng-deep .autocomplete-container .input-container input {
+//   height: 25px;
+//   box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+// }
+
+// .autocomplete-container {
+//   height: 25px;
+// }

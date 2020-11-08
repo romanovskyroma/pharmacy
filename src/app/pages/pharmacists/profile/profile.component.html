@@ -1,0 +1,28 @@
+<div class="block">
+  <div class="menu">
+    <div class="myPhoto" (mouseover)="mouseover()" (mouseleave)="mouseleave()">
+      <div class="photo" alt="моє фото" [ngStyle]="{'background-image': 'url(' + imageUrl + ')'}">
+        </div>
+      <div class="bottomShadow" [style.backgroundColor]="isShadow">
+        <!-- <fa name="cog" animation="spin"></fa> -->
+        <input type="file" class="inpPhoto" (change)="chooseFile($event)" (mouseover)="myColorEdit='white'"
+          (mouseleave)="myColorEdit='black'">
+        <fa-icon class="faEdit" [icon]="faEdit" *ngIf="edit" [style.color]="myColorEdit">
+          <!-- <input type="file" class="inpPhoto"> -->
+        </fa-icon>
+        <fa-icon class="faCut" [icon]="faCut" *ngIf="cut" [style.color]="myColorCut" (mouseover)="myColorCut='white'"
+          (mouseleave)="myColorCut='black'" (click)="delPhoto()"></fa-icon>
+      </div>
+    </div>
+    <ul class="listMenu">
+      <li><a [routerLink]="[ '/pharmacists/profile/myresume']">мої резюме</a></li>
+      <li>
+        <a [routerLink]="[ '/pharmacists/profile/aboutme']">мої дані</a>
+        <a class="edit" [routerLink]="[ '/pharmacists/profile/editaboutme']">ред.</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

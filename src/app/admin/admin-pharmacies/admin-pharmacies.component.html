@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Назва</td>
+                <td>email</td>
+                <td>Область</td>
+                <td>Місто</td>
+                <td>Адреса</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pharmmacy of pharmacies, index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{ pharmmacy.pharmacyName }}</td>
+                <td>{{ pharmmacy.email }}</td>
+                <td>{{ pharmmacy.pharmacyRegion }}</td>
+                <td>{{ pharmmacy.pharmacyCity }}</td>
+                <td>{{ pharmmacy.pharmacyAdress }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

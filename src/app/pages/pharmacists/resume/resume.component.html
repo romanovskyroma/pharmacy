@@ -1,0 +1,31 @@
+<div class="block"> 
+  <form (ngSubmit)="addResume()">
+    <h3>Бажана посада</h3>
+    <select name="position" [(ngModel)]="resume.position">
+      <option value="Фармацевт">Фармацевт</option>
+      <option value="Провізор">Провізор</option>
+      <option value="Медичний представник">Медичний представник</option>
+      <option value="Регіональний менеджер">Регіональний менеджер</option>
+    </select>
+    <h3>Місто</h3> 
+    <input type="text" placeholder="Львів" pattern="[0-9a-zA-Z]" [(ngModel)]="resume.city" name="city">
+    <h3>Заробітня плата</h3>
+    <input type="text" placeholder="0 грн" [(ngModel)]="resume.salery" name="salery">
+    <h3>Освіта</h3> 
+    <input type="text" placeholder="навчальний заклад" [(ngModel)]="resume.univercity" name="univercity">
+    <h3>Досвід роботи:(роки)</h3>
+    <input type="text" placeholder="2 роки" [(ngModel)]="resume.experienceYears" name="experienceYears">
+    <p>тут ви можете вказати компанії де ви працювали та час роботи</p>
+    <p><textarea class="txtareaExperience" cols="80" rows="5" [(ngModel)]="resume.experience" name="experience"></textarea></p>
+    <h3>Про себе(навики, звички, якості)</h3>
+    <p><textarea class="txtareaAbout" name="aboutMySelf" cols="80" rows="5" [(ngModel)]="resume.aboutMySelf"></textarea></p>
+    <input class="btn" type="submit" value="Додати Резюме">
+    <p>{{ resume.position }}</p>
+  
+    <p *ngFor="let resume of allResume">
+      {{ resume.position }}
+      {{ resume.salery }}
+      {{ resume.uid }}
+    </p>
+  </form>
+</div>

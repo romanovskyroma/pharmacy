@@ -100,7 +100,7 @@
           </p>
           <p><input [ngClass]="{'redBorder': adressPh.invalid && adressPh.dirty}" name="adress"
               [(ngModel)]="newPharm.pharmacyAdress" #adressPh="ngModel" type="text" required 
-              pattern="^[а-яі?]{3,},[0-9]{1,3}$" placeholder="Шевченка,15">
+              pattern="^[А-ЯІ?]{1}[а-яі?]{3,},[0-9]{1,3}$" placeholder="Шевченка,15">
           </p>
         </div>
       </div>

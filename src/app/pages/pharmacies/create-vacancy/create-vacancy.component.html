@@ -6,7 +6,7 @@
     <div class="groupYear">
       <input type="text" class="expYear" placeholder="Досвід роботи" name="experienceYears" #experienceYears="ngModel"
         [(ngModel)]="formData.experienceYears" required disabled><span class="year">від {{ formData.experienceYears }} {{ year }}</span>
-    </div> 
+    </div>
     <input type="range" class="slider" min="0" max="10" name="experienceYears" [(ngModel)]="formData.experienceYears"
       required (change)="onYearChange()">
     <textarea placeholder="Вимоги та навики" cols="50%" rows="10%" name="skills" [(ngModel)]="formData.skills"
